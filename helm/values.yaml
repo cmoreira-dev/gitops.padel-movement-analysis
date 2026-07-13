@@ -1,0 +1,42 @@
+# Values pro subchart "generic-app" (ver dependencies em Chart.yaml).
+# Referência completa de todos os campos: gitops.generic-app-chart/charts/generic-app/values.yaml
+# Exemplo real preenchido: gitops.generic-app-chart/examples/values-headlamp.yaml
+generic-app:
+  nameOverride: "<app-name>"
+
+  namespace:
+    create: true
+    # name: "<app-name>"  # default: namespace do Helm release, quando vazio
+
+  image:
+    repository: "<registry>/<app-image>"
+    tag: "<tag>"
+
+  service:
+    port: 80
+    targetPort: 8080 # porta real que o container escuta
+
+  httpRoute:
+    enabled: true
+    gateway:
+      name: nginx-gateway
+      namespace: nginx-gateway
+    hostnames:
+      - "<app-name>.cmoreira.dev"
+
+  # Descomentar se a imagem vier de um ECR privado (ver kustomize/external-secrets
+  # no gitops.core-addons) — o secret precisa existir no mesmo namespace do app.
+  # imagePullSecrets:
+  #   - name: ecr-pull-secret
+
+  # Descomentar se o app precisar de segredo(s) vindos do SSM via ExternalSecret.
+  # externalSecrets:
+  #   enabled: true
+  #   secretStoreRef:
+  #     name: aws-ssm
+  #     kind: ClusterSecretStore
+  #   secretName: "<app-name>-secret"
+  #   data:
+  #     - secretKey: some-key
+  #       remoteRef:
+  #         key: /homelab/<app-name>/some-key

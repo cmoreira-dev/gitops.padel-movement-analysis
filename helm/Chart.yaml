@@ -1,0 +1,10 @@
+apiVersion: v2
+name: <app-name>-wrapper
+description: Wrapper chart to deploy <app-name> via the shared generic-app chart
+type: application
+version: 0.1.0
+
+dependencies:
+  - name: generic-app
+    version: "0.1.0"
+    repository: "git+https://github.com/cmoreira-dev/gitops.generic-app-chart.git@charts/generic-app?ref=main"
