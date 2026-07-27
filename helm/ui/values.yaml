@@ -1,0 +1,25 @@
+generic-app:
+  nameOverride: "teupadel-ui"
+
+  namespace:
+    create: true
+    name: "teupadel"
+
+  image:
+    repository: "teupadel/ui"
+    tag: "latest"
+
+  service:
+    port: 80
+    targetPort: 8080 # porta real que o container escuta
+
+  httpRoute:
+    enabled: true
+    gateway:
+      name: nginx-gateway
+      namespace: nginx-gateway
+    hostnames:
+      - "teupadel.com"
+
+    imagePullSecrets:
+     - name: ecr-pull-secret
