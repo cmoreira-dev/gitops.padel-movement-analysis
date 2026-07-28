@@ -16,7 +16,7 @@ generic-app:
   httpRoute:
     enabled: true
     gateway:
-      name: nginx-gateway
+      name: nginx-gateway-teupadel-com
       namespace: nginx-gateway
     hostnames:
       - "teupadel.com"
