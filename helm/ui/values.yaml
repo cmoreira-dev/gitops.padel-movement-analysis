@@ -6,7 +6,7 @@ generic-app:
     name: "teupadel"
 
   image:
-    repository: "teupadel/ui"
+    repository: "344965637185.dkr.ecr.us-east-1.amazonaws.com/teupadel/ui"
     tag: "latest"
 
   service:
@@ -22,4 +22,15 @@ generic-app:
       - "teupadel.com"
 
     imagePullSecrets:
-     - name: ecr-pull-secret
+      - name: ecr-pull-secret
+
+externalSecrets:
+  enabled: true
+  secretStoreRef:
+    name: aws-ssm
+    kind: ClusterSecretStore
+  secretName: "teupadel-ui-secret"
+  data:
+    - secretKey: some-key
+      remoteRef:
+        key: /homelab/teupadel/anthropic_ui_key

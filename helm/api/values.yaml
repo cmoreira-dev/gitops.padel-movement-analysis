@@ -19,7 +19,7 @@ generic-app:
       name: nginx-gateway
       namespace: nginx-gateway
     hostnames:
-      - "teupadel.com"
+      - "api.teupadel.com"
 
     imagePullSecrets:
     - name: ecr-pull-secret
