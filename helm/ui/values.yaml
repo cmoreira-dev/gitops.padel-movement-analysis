@@ -11,7 +11,7 @@ generic-app:
 
   service:
     port: 80
-    targetPort: 8080 # porta real que o container escuta
+    targetPort: 80 # porta real que o container escuta
 
   httpRoute:
     enabled: true
