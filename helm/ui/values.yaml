@@ -25,7 +25,7 @@ generic-app:
     enabled: true
     injectAsEnv: true
     data:
-      VITE_PADEL_API_URL: "http://www.teupadel.com"
+      VITE_PADEL_API_URL: "https://api.teupadel.com"
 
 externalSecrets:
   enabled: true
