@@ -27,13 +27,13 @@ generic-app:
     data:
       ANTHROPIC_MODEL: "claude-sonnet-5"
 
-externalSecrets:
-  enabled: true
-  secretStoreRef:
-    name: aws-ssm
-    kind: ClusterSecretStore
-  secretName: "teupadel-api-secret"
-  data:
-    - secretKey: ANTHROPIC_API_KEY
-      remoteRef:
-        key: /homelab/teupadel/anthropic_api_key
+  externalSecrets:
+    enabled: true
+    secretStoreRef:
+      name: aws-ssm
+      kind: ClusterSecretStore
+    secretName: "teupadel-api-secret"
+    data:
+      - secretKey: ANTHROPIC_API_KEY
+        remoteRef:
+          key: /homelab/teupadel/anthropic_api_key
