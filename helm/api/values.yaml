@@ -21,6 +21,12 @@ generic-app:
     hostnames:
       - "api.teupadel.com"
 
+  configMap:
+    enabled: true
+    injectAsEnv: true
+    data:
+      ANTHROPIC_MODEL: "claude-sonnet-5"
+
 externalSecrets:
   enabled: true
   secretStoreRef:
